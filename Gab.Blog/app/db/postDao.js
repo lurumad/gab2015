@@ -46,6 +46,9 @@ PostDao.prototype = {
                 }  
             });
     },
+    all: function() {
+        
+    },
     add: function(post, callback) {
         var self = this,
             json = JSON.parse(JSON.stringify(post));
@@ -94,8 +97,8 @@ PostDao.prototype = {
 }
 
 module.exports = new PostDao(
-    'HOST', 
-    'MASTERKEY');
+    'https://gab15.documents.azure.com:443/', 
+    'L4lCXP4zoaUiDVHJM2Wru6Iu3eYxogxypXPuzA74F+GycJCXCXvYsIer8kX+xt4JrRGoFXCNsUfN/lCCVLznxQ==');
 
 
 

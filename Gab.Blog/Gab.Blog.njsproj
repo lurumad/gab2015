@@ -43,9 +43,6 @@
     <Content Include="public\stylesheets\main.less" />
     <Content Include="bower.json" />
     <Content Include="package.json" />
-    <Content Include="README.md" />
-    <Content Include="views\index.jade" />
-    <Content Include="views\layout.jade" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\models\" />
@@ -62,7 +59,6 @@
     <Folder Include="public\stylesheets\" />
     <Folder Include="public\views\" />
     <Folder Include="routes\" />
-    <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />

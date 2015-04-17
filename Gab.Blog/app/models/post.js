@@ -24,7 +24,8 @@ var PostSchema = new Schema({
     createdAt : { type : Date, default : Date.now },
     comments : [CommentSchema],
     tags: { type : [], get : getTags, set : setTags },
-    _self : { type : Object }
+    _self : { type : Object },
+    publish : { type : Boolean }
 });
 
 PostSchema.methods = {
