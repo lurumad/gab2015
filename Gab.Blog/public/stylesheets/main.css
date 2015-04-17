@@ -1,0 +1,14 @@
+﻿html,
+body {
+  min-width: 1300px;
+  height: 100%;
+}
+body {
+  font-family: "Roboto Condensed";
+  font-size: 14px;
+}
+.clearfix,
+.clear {
+  clear: both;
+}
+/*# sourceMappingURL=main.css.map */
