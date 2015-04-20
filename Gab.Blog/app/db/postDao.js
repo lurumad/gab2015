@@ -46,8 +46,26 @@ PostDao.prototype = {
                 }  
             });
     },
-    all: function() {
+    all: function(callback) {
+        var self = this;
         
+        var querySpec = {
+            query: 'SELECT * FROM root r'
+        };
+        
+        self.client.queryDocuments(self.collection._self, querySpec).toArrayAsync()
+            .then(function (results) {
+            var posts = [];
+
+                for (var i = 0; i < results.feed.length; i++) {
+                    posts.push(results.feed[i]);
+                }
+
+            callback(null, posts);
+        })
+        .fail(function (error) {
+            callback(error);
+        });
     },
     add: function(post, callback) {
         var self = this,
@@ -97,8 +115,8 @@ PostDao.prototype = {
 }
 
 module.exports = new PostDao(
-    '', 
-    '');
+    'HOST', 
+    'MASTERKEY');
 
 
 

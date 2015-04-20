@@ -4,7 +4,7 @@
     PostDao = require('./db/postDao');
 
 router.route('/posts').get(function (req, res) {
-    Post.find().exec(function(err, posts) {
+    PostDao.all(function(err, posts) {
         if (err) {
             res.send(err);
         }
