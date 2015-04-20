@@ -1,6 +1,7 @@
 ﻿var DocumentClient = require('documentdb-q-promises').DocumentClientWrapper,
     shortid = require('shortid'),
-    Post = require('../models/post');
+    Post = require('../models/post'),
+    q = require('q');
 
 var PostDao = function(host, masterKey) {
     this.client = new DocumentClient(host, { masterKey: masterKey });

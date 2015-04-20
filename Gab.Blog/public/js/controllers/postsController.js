@@ -1,4 +1,6 @@
-﻿angular.module('app.controllers', []).
+﻿'use strict';
+
+angular.module('app.controllers', []).
     controller('postsController', function($scope, $http) {
         $http.get('api/posts')
             .success(function (data) {
