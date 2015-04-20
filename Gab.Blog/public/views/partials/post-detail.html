@@ -1,24 +1,29 @@
-﻿<body>
-    PostDetail<br />
-    {{post.id}}<br />
-    {{post.title}}<br />
-
-    <table class="table table-hover">
-        <thead>
-            <tr><th colspan="4">Comentarios</th></tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="comment in post.comments">
-                <td>
-                    {{comment.user}}
-                </td>
-                <td>
+﻿<div ng-show="contentLoaded">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-preview">
+            <h2 class="post-title">
+                {{post.title}}
+            </h2>
+            <span ng-bind-html="obtenerBodyHtml(post.body)">
+                {{post.body}}
+            </span>
+            <div class="post-meta">
+                Posteado por xxx el <b>{{post.createdAt | date:'dd/MM/yyyy h:mma'}}</b>.
+            </div>
+        </div>
+        <hr />
+        <div class="section-comment">Comentarios</div>
+        <div ng-repeat="comment in post.comments">
+            <div>
+                <div>
+                    {{comment.user}} <span class="post-comment-date"> {{post.createdAt | date:'dd/MM/yyyy h:mma'}}</span>
+                </div>
+                <div>
                     {{comment.body}}
-                </td>
-                <td>
-                    {{comment.createdAt}}
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</body>
+                </div>
+            </div>
+            <hr />
+        </div>
+    </div>
+</div>
+    

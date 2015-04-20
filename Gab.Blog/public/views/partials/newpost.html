@@ -1,0 +1,19 @@
+﻿<div>
+    <div>
+        <label>Título:</label>
+        <input type="text" ng-model="post.title" size="100px"/>
+    </div>
+    <div>
+        <label>Body:</label>
+        <wysiwyg textarea-id="body"
+                 textarea-class="form-control"
+                 textarea-height="180px"
+                 textarea-name="body"
+                 textarea-required
+                 ng-model="post.body"
+                 enable-bootstrap-title="true">
+        </wysiwyg>
+    </div>
+    <br/>
+    <input class="btn btn-primary" type="Button" value="Guardar Post" ng-click="addPost(post)"/>
+</div>

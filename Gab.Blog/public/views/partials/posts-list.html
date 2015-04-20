@@ -1,18 +1,22 @@
-﻿<table class="table table-hover">
-    <thead>
-        <tr><th colspan="4">Listado de posts</th></tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="post in posts">
-            <td>
+﻿<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" ng-show="contentLoaded" ng-repeat="post in posts">
+    <div class="post-preview">
+        <a href="/#post/{{post.id}}">
+            <h2 class="post-title">
                 {{post.title}}
-            </td>
-            <td>
-                {{post.createdAt}}
-            </td>
-            <td>
-                <a class="btn btn-default" href="/#post/{{post.id}}">Detalle</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+            </h2>
+            <span ng-bind-html="obtenerBodyHtmlLimitado(post.body)">
+                {{post.body}}
+            </span>
+        </a>
+        <div class="post-meta">
+            Posteado por xxx el <b>{{post.createdAt | date:'dd/MM/yyyy h:mma'}}</b>.
+            Comentarios <b>({{post.comments.length}})</b>
+        </div>
+    </div>
+    <hr />
+</div>
+<div class="clear"></div>
+<div ng-show="contentLoaded" class="newPostBtn">
+    <a class="btn btn-primary" href="/#newpost">Nuevo Post</a>
+</div>
+

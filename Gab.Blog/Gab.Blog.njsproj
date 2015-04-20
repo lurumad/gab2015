@@ -40,7 +40,8 @@
     <Compile Include="public\js\controllers\postsController.js" />
     <Content Include=".bowerrc" />
     <Content Include=".jshintrc" />
-    <Content Include="public\views\index.html" />
+    <Content Include="public\images\MinionRace2015Lazo.jpg" />
+    <Content Include="public\stylesheets\blog.less" />
     <Content Include="public\stylesheets\main.less" />
     <Content Include="bower.json" />
     <Content Include="package.json" />
@@ -63,7 +64,9 @@
     <Folder Include="routes\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="public\views\index2.html" />
+    <Content Include="public\stylesheets\variables.less" />
+    <Content Include="public\views\index.html" />
+    <Content Include="public\views\partials\newpost.html" />
     <Content Include="public\views\partials\post-detail.html" />
     <Content Include="public\views\partials\posts-list.html" />
     <Content Include="Web.config" />
