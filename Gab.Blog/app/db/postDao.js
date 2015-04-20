@@ -97,8 +97,8 @@ PostDao.prototype = {
 }
 
 module.exports = new PostDao(
-    'https://gab15.documents.azure.com:443/', 
-    'L4lCXP4zoaUiDVHJM2Wru6Iu3eYxogxypXPuzA74F+GycJCXCXvYsIer8kX+xt4JrRGoFXCNsUfN/lCCVLznxQ==');
+    '', 
+    '');
 
 
 
