@@ -58,7 +58,7 @@ PostDao.prototype = {
             var posts = [];
 
                 for (var i = 0; i < results.feed.length; i++) {
-                    posts.push(results.feed[i]);
+                    posts.push(new Post(results.feed[i]));
                 }
 
             callback(null, posts);
