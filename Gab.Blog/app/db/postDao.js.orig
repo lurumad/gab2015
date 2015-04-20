@@ -48,6 +48,7 @@ PostDao.prototype = {
     },
     all: function(callback) {
         var self = this;
+<<<<<<< HEAD
         
         var querySpec = {
             query: 'SELECT * FROM root r'
@@ -60,6 +61,22 @@ PostDao.prototype = {
                     postList.push(new Post(data));
                 });
                 callback(null,postList);
+=======
+        
+        var querySpec = {
+            query: 'SELECT * FROM root r'
+        };
+        
+        self.client.queryDocuments(self.collection._self, querySpec).toArrayAsync()
+            .then(function (results) {
+            var posts = [];
+
+                for (var i = 0; i < results.feed.length; i++) {
+                    posts.push(new Post(results.feed[i]));
+                }
+
+            callback(null, posts);
+>>>>>>> ee3592114dd337c544f35a9e92f743db1d38ed1b
         })
         .fail(function (error) {
             callback(error);
