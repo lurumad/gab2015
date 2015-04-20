@@ -4,6 +4,6 @@
             root: './public/views/'
         };
         
-        res.sendFile('index.html', options);
+        res.sendFile('index2.html', options);
     });
 };

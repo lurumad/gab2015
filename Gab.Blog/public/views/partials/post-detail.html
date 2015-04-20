@@ -1,0 +1,24 @@
+﻿<body>
+    PostDetail<br />
+    {{post.id}}<br />
+    {{post.title}}<br />
+
+    <table class="table table-hover">
+        <thead>
+            <tr><th colspan="4">Comentarios</th></tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="comment in post.comments">
+                <td>
+                    {{comment.user}}
+                </td>
+                <td>
+                    {{comment.body}}
+                </td>
+                <td>
+                    {{comment.createdAt}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>

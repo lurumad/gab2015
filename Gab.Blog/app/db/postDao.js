@@ -46,8 +46,24 @@ PostDao.prototype = {
                 }  
             });
     },
-    all: function() {
+    all: function(callback) {
+        var self = this;
         
+        var querySpec = {
+            query: 'SELECT * FROM root r'
+        };
+        
+        self.client.queryDocuments(self.collection._self, querySpec).toArrayAsync()
+            .then(function (results) {
+                var postList = [];
+                results.feed.forEach(function(data) {
+                    postList.push(new Post(data));
+                });
+                callback(null,postList);
+        })
+        .fail(function (error) {
+            callback(error);
+        });
     },
     add: function(post, callback) {
         var self = this,
