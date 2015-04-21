@@ -20,7 +20,7 @@
     <OutputPath>.</OutputPath>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
     <NodejsPort>1337</NodejsPort>
     <StartWebBrowser>true</StartWebBrowser>
   </PropertyGroup>
@@ -36,9 +36,12 @@
     <Compile Include="app\models\post.js" />
     <Compile Include="app\apiRoutes.js" />
     <Compile Include="app\webRoutes.js" />
+    <Compile Include="dist\js\app.min.js" />
+    <Compile Include="dist\js\vendor.min.js" />
     <Compile Include="public\js\app.js" />
     <Compile Include="Gulpfile.js" />
     <Compile Include="public\js\controllers\postsController.js" />
+    <Compile Include="public\js\templates.js" />
     <Compile Include="public\lib\angular-bootstrap-colorpicker\gulpfile.js" />
     <Compile Include="public\lib\angular-bootstrap-colorpicker\js\bootstrap-colorpicker-module.js" />
     <Compile Include="public\lib\angular-bootstrap-colorpicker\js\bootstrap-colorpicker-module.min.js" />
@@ -166,6 +169,10 @@
     <Compile Include="public\lib\jquery\src\wrap.js" />
     <Content Include=".bowerrc" />
     <Content Include=".jshintrc" />
+    <Content Include="dist\css\style.min.css" />
+    <Content Include="dist\images\MinionRace2015Lazo.jpg" />
+    <Content Include="dist\index.html" />
+    <None Include="globalazurebootcamp2015.pubxml" />
     <Content Include="public\images\MinionRace2015Lazo.jpg" />
     <Content Include="public\lib\angular-bootstrap-colorpicker\.bower.json" />
     <Content Include="public\lib\angular-bootstrap-colorpicker\.gitignore" />
@@ -321,6 +328,9 @@
     <Folder Include="dist\" />
     <Folder Include="app\" />
     <Folder Include="config\" />
+    <Folder Include="dist\css\" />
+    <Folder Include="dist\images\" />
+    <Folder Include="dist\js\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\js\" />

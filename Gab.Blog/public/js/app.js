@@ -1,5 +1,5 @@
 ﻿(function() {
-    var app = angular.module('app', ['ngRoute', 'app.controllers']);
+    var app = angular.module('app', ['ngRoute', 'app.controllers','app.templates']);
 
     app.config([
         '$routeProvider', function($routeProvider) {
