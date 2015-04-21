@@ -14,13 +14,13 @@ gulp.task('server', function() {
 });
 
 gulp.task('inject', function() {
-    var sources = gulp.src(['./public/js/**/*.js', './public/stylesheets/**/*.css']);
+    var sources = gulp.src(['./public/js/**/*.js', './public/stylesheets/**/*.css'], {
+        read: false,
+        ignorePath: './public/views'
+    });
 
     return gulp.src('index.html', { cwd: './public/views' })
-        .pipe(inject(sources, {
-            read: false,
-            ignorePath: './public/views'
-        }))
+        .pipe(inject(sources, { relative: true }))
         .pipe(gulp.dest('./public/views'));
 });
 
