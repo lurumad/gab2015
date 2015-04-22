@@ -26,7 +26,7 @@ angular.module('app.controllers', ['ngSanitize', 'wysiwyg.module']).
         };
        
     }).
-    controller('postDetailController', function ($scope, $routeParams, $http, $sce, $route, $location) {
+    controller('postDetailController', function ($scope, $routeParams, $http, $sce, $route) {
         $scope.id = $routeParams.postId;
         $http.get('api/posts/' + $routeParams.postId)
               .success(function (data) {
