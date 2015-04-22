@@ -9,7 +9,7 @@
             </span>
         </a>
         <div class="post-meta">
-            Posteado por xxx el <b>{{post.createdAt | date:'dd/MM/yyyy h:mma'}}</b>.
+            Posteado por {{post.user}} el <b>{{post.createdAt | date:'dd/MM/yyyy h:mma'}}</b>.
             Comentarios <b>({{post.comments.length}})</b>
         </div>
     </div>

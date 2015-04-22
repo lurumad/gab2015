@@ -239,7 +239,17 @@ hr.small {
 			margin-bottom: 10px;
 		}
 	}
-	> .post-meta {
+	
+	@media only screen and (min-width: 768px) {
+		> a {
+			> .post-title {
+				font-size: 36px;
+			}
+		}
+	}
+}
+
+.post-meta {
 		color: @gray;
 		font-size: 18px;
 		font-style: italic;
@@ -254,15 +264,6 @@ hr.small {
 			}
 		}
 	}
-	@media only screen and (min-width: 768px) {
-		> a {
-			> .post-title {
-				font-size: 36px;
-			}
-		}
-	}
-}
-
 // Sections
 
 .section-heading {

@@ -25,7 +25,7 @@ angular.module('app.controllers', ['ngSanitize', 'wysiwyg.module']).
         };
        
     }).
-    controller('postDetailController', function ($scope, $routeParams, $http, $sce) {
+    controller('postDetailController', function ($scope, $routeParams, $http, $sce, $route, $location) {
         $scope.id = $routeParams.postId;
         $http.get('api/posts/' + $routeParams.postId)
               .success(function (data) {
@@ -36,9 +36,23 @@ angular.module('app.controllers', ['ngSanitize', 'wysiwyg.module']).
         .error(function (data) {
             console.log('Error:' + data);
         });
+
         $scope.obtenerBodyHtml = function (snippet) {
             return $sce.trustAsHtml(snippet);
-        };  
+        };
+
+        $scope.addComment = function (comment) {
+            if (comment !== undefined) {
+                $http.post('api/posts/' + $routeParams.postId + '/comments', comment)
+                        .success(function (data) {
+                            $route.reload();
+                            console.log(data);
+                        })
+                        .error(function (data) {
+                            console.log('Error:' + data);
+                        });
+            }
+        };
     }).
     controller('newPostController', function ($scope, $http, $location) {
         $scope.addPost = function (post) {

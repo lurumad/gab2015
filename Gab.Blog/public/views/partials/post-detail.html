@@ -8,21 +8,26 @@
                 {{post.body}}
             </span>
             <div class="post-meta">
-                Posteado por xxx el <b>{{post.createdAt | date:'dd/MM/yyyy h:mma'}}</b>.
+                Posteado por {{post.user}} el <b>{{post.createdAt | date:'dd/MM/yyyy h:mma'}}</b>.
             </div>
         </div>
         <hr />
         <div class="section-comment">Comentarios</div>
         <div ng-repeat="comment in post.comments">
             <div>
-                <div>
+                <div class="post-meta">
                     {{comment.user}} <span class="post-comment-date"> {{post.createdAt | date:'dd/MM/yyyy h:mma'}}</span>
                 </div>
                 <div>
                     {{comment.body}}
                 </div>
             </div>
-            <hr />
+            <hr/>
+        </div>
+        <div>
+            <textarea ng-model="comment.body" size="100px" rows="4" cols="80"> </textarea>
+            <br />
+            <input id="comment" class="btn btn-primary" type="Button" value="Guardar" ng-click="addComment(comment)" />
         </div>
     </div>
 </div>
