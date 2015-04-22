@@ -21,7 +21,7 @@ gulp.task('server', function() {
 gulp.task('server-pro', function () {
     connect.server({
         root: './dist',
-        port: 8081,
+        port: 8080,
         livereload: true
     });
 });
