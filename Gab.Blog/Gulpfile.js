@@ -3,7 +3,12 @@
     less    = require('gulp-less'),
     jshint  = require('gulp-jshint'),
     inject  = require('gulp-inject'),
-    wiredep = require('wiredep').stream;
+    wiredep = require('wiredep').stream,
+    gulpif = require('gulp-if'),
+    minifyCss = require('gulp-minify-css'),
+    useref = require('gulp-useref'),
+    uglify = require('gulp-uglify'),
+    templateCache = require('gulp-angular-templatecache');
 
 gulp.task('server', function() {
     connect.server({
@@ -13,14 +18,46 @@ gulp.task('server', function() {
     });
 });
 
+gulp.task('server-pro', function () {
+    connect.server({
+        root: './dist',
+        port: 8080,
+        livereload: true
+    });
+});
+
+gulp.task('templates', function () {
+    gulp.src('./public/views/partials/*.html')
+    .pipe(templateCache({
+            root: '/views/partials',
+            module: 'app.templates',
+            standalone: true
+        }))
+    .pipe(gulp.dest('./public/js'));
+});
+
+gulp.task('compress', function () {
+    gulp.src('./public/views/index.html')
+    .pipe(useref.assets())
+    .pipe(gulpif('*.js', uglify({ mangle: false })))
+    .pipe(gulpif('*.css', minifyCss()))
+    .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('copy', function () {
+    gulp.src('./public/views/index.html')
+    .pipe(useref())
+    .pipe(gulp.dest('./dist'));
+});
+
 gulp.task('inject', function() {
-    var sources = gulp.src(['./public/js/**/*.js', './public/stylesheets/**/*.css']);
+    var sources = gulp.src(['./public/js/**/*.js', './public/stylesheets/**/*.css'], {
+        read: false,
+        ignorePath: './public/views'
+    });
 
     return gulp.src('index.html', { cwd: './public/views' })
-        .pipe(inject(sources, {
-            read: false,
-            ignorePath: './public/views'
-        }))
+        .pipe(inject(sources, { relative: true }))
         .pipe(gulp.dest('./public/views'));
 });
 
@@ -59,3 +96,4 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', ['server','inject','wiredep','watch']);
+gulp.task('build', ['compress','copy']);

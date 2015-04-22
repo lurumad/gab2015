@@ -1,5 +1,7 @@
-﻿(function() {
-    var app = angular.module('app', ['ngRoute', 'app.controllers']);
+﻿(function () {
+    'use strict';
+
+    var app = angular.module('app', ['ngRoute', 'app.controllers','app.templates']);
 
     app.config([
         '$routeProvider', function($routeProvider) {
@@ -8,6 +10,7 @@
                 when('/newpost', { templateUrl: '/views/partials/newpost.html', controller: 'newPostController' }).
                 when('/post/:postId', { templateUrl: '/views/partials/post-detail.html', controller: 'postDetailController' }).
                 otherwise({ redirectTo: '/' });
-        }
+    }
+
     ]);
 })();

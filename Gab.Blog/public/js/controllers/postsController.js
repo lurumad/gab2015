@@ -1,4 +1,5 @@
 ﻿'use strict';
+
 angular.module('app.controllers', ['ngSanitize', 'wysiwyg.module']).
     controller('postsController', function($scope, $http, $sce) {
         $http.get('api/posts')
@@ -19,7 +20,7 @@ angular.module('app.controllers', ['ngSanitize', 'wysiwyg.module']).
             var limit = 500;
             var bodyCompleto = $sce.trustAsHtml(snippet);
             if (snippet.length> limit) {
-                bodyCompleto = $sce.trustAsHtml(snippet.substring(0, limit) + " ...");
+                bodyCompleto = $sce.trustAsHtml(snippet.substring(0, limit) + ' ...');
             }
             return bodyCompleto;
         };
@@ -56,11 +57,11 @@ angular.module('app.controllers', ['ngSanitize', 'wysiwyg.module']).
     }).
     controller('newPostController', function ($scope, $http, $location) {
         $scope.addPost = function (post) {
-            if (post!=undefined && post.title !== "" && post.body !== "") {
-                post.user = "admin";
+            if (post && post.title !== '' && post.body !== '') {
+                post.user = 'admin';
                 $http.post('api/posts/', post)
                     .success(function(data) {
-                        $location.path("/");
+                        $location.path('/');
                         console.log(data);
                     })
                     .error(function(data) {

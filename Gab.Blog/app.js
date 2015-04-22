@@ -19,11 +19,13 @@ PostDao.connect();
 app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' === app.get('env')) {
     app.use(errorhandler());
+    app.use(express.static(path.join(__dirname, 'public')));
+} else {
+    app.use(express.static(path.join(__dirname, 'dist')));
 }
 
 app.use('/api', apiRoutes);
